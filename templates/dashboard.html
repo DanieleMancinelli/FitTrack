@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Dashboard</h2>
+
+<h3>I tuoi allenamenti</h3>
+<ul>
+    {% for a in allenamenti %}
+        <li>{{ a.data }} - {{ a.durata }} min - {{ a.note }}</li>
+    {% else %}
+        <li>Nessun allenamento registrato.</li>
+    {% endfor %}
+</ul>
+
+<h3>I tuoi progressi</h3>
+<ul>
+    {% for p in progressi %}
+        <li>{{ p.data }} - Peso: {{ p.peso }}kg, Altezza: {{ p.altezza }}cm, BMI: {{ p.bmi }}</li>
+    {% else %}
+        <li>Nessun progresso registrato.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

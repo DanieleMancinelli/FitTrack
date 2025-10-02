@@ -1,0 +1,80 @@
+/* Stile base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    display: inline-block;
+}
+
+header p {
+    display: inline-block;
+    float: right;
+}
+
+/* Link */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Form */
+form {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Liste */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 3px;
+}
