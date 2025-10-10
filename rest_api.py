@@ -14,7 +14,7 @@ db_config = {
     'host': 'mysql-54fee60-correzione-verifica21-10.j.aivencloud.com',
     'user': 'avnadmin',
     'password': 'AVNS_iY9T-ZLq2IPFDEue9p6',
-    'database': 'W3Schools',
+    'database': 'FitTrack',
     'port': 19384
 }
 
