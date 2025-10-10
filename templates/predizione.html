@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Predizione Livello Fitness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='predizione.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>FitTrack - Predizione Fitness</h1>
+        <form id="predict-form">
+            <label>Durata media (minuti):</label>
+            <input type="number" name="durata_media" required>
+
+            <label>Numero allenamenti:</label>
+            <input type="number" name="numero_allenamenti" required>
+
+            <label>Peso medio (kg):</label>
+            <input type="number" name="peso_medio" required>
+
+            <label>BMI medio:</label>
+            <input type="number" name="bmi_medio" step="0.1" required>
+
+            <label>Massa grassa media (%):</label>
+            <input type="number" name="massa_grassa_media" step="0.1" required>
+
+            <button type="submit">Calcola Livello Fitness</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <h2>Risultato:</h2>
+            <p id="livello"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("predict-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            const res = await fetch("/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const json = await res.json();
+            const resultDiv = document.getElementById("result");
+            const livello = document.getElementById("livello");
+
+            if (json.livello_fitness) {
+                livello.textContent = json.livello_fitness.toUpperCase();
+                resultDiv.classList.remove("hidden");
+            } else {
+                livello.textContent = "Errore: " + (json.error || "Impossibile calcolare");
+                resultDiv.classList.remove("hidden");
+            }
+        });
+    </script>
+</body>
+</html>
